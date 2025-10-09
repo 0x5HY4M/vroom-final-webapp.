@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VROOM - Votre Solution Automobile Premium 2025</title>
+    <meta name="description"
+        content="VROOM - Devis transparent, location de véhicules et réparation expert. Service premium 24h/24.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <div class="loading-screen">
+        <div class="loader-container">
+            <div class="logo-loader">
+                <div class="logo-spin"></div>
+                <span>VROOM</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="vroom logo.jpg" alt="VROOM Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-main">VROOM</span>
+                    <span class="logo-sub">Excellence Automobile</span>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="#accueil" class="nav-link">Accueil</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">À Propos</a>
+                <a href="#location" class="nav-link">Location</a>
+                <a href="#temoignages" class="nav-link">Témoignages</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="languageBtn" class="btn btn-outline">
+                    <i class="fas fa-globe"></i>
+                    FR
+                </button>
+                <button class="btn btn-outline" onclick="openAuthModal('login')">
+                    <i class="fas fa-user"></i>
+                    Connexion
+                </button>
+                <button class="btn btn-primary" onclick="openDevisModal()">
+                    <i class="fas fa-file-invoice"></i>
+                    DEVIS
+                </button>
+                <button class="btn btn-secondary" onclick="openLocationModal()">
+                    <i class="fas fa-car"></i>
+                    LOCATION
+                </button>
+            </div>
+
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#about">À Propos</a>
+        <a href="#location">Location</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#contact">Contact</a>
+        <div class="mobile-actions">
+            <button class="btn btn-outline" onclick="openAuthModal('login');">
+                <i class="fas fa-user"></i>
+                Connexion
+            </button>
+            <button class="btn btn-primary" onclick="openDevisModal();">
+                <i class="fas fa-file-invoice"></i>
+                DEVIS
+            </button>
+            <button class="btn btn-secondary" onclick="openLocationModal();">
+                <i class="fas fa-car"></i>
+                LOCATION
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-bg-3d">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="grid-pattern"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="premium-badge">
+                    <div class="badge-shine"></div>
+                    <i class="fas fa-crown"></i>
+                    <span>VROOM ÉLITE</span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="title-line">Avec Vroom, simplifiez</span>
+                    <span class="title-line">l'entretien et la réparation</span>
+                    <span class="title-line">de votre <span class="highlight">voiture</span></span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Obtenez un devis gratuit et réservez en ligne pour l'entretien ou la réparation de votre véhicule,
+                    <strong>au meilleur prix et en quelques clics.</strong>
+                </p>
+
+                <div class="hero-features">
+                    <div class="hero-feature-card">
+                        <div class="feature-icon-3d">📍</div>
+                        <div>
+                            <h4>Trouvez le garage idéal</h4>
+                            <p>Près de votre domicile, de votre lieu de travail ou idéalement situé sur votre lieu de
+                                vacances</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-feature-card">
+                        <div class="feature-icon-3d">⚡</div>
+                        <div>
+                            <h4>Devis instantané en temps réel</h4>
+                            <p>Recevez un devis instantané en temps réel et prenez facilement rendez-vous</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-feature-card">
+                        <div class="feature-icon-3d">🛡️</div>
+                        <div>
+                            <h4>40+ types de services</h4>
+                            <p>Avec Vroom, réservez en toute confiance parmi plus de 40 types de services</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn-3d btn-primary-3d" onclick="openDevisModal()">
+                        <div class="btn-shine-effect"></div>
+                        <i class="fas fa-bolt"></i>
+                        <span>Obtenir un Devis Gratuit</span>
+                    </button>
+
+                    <button class="btn-3d btn-secondary-3d" onclick="scrollToSection('services')">
+                        <i class="fas fa-play"></i>
+                        <span>Découvrir nos Services</span>
+                    </button>
+                </div>
+
+                <!-- Luxury Hero Search -->
+                <form id="heroSearch" class="hero-search-3d" onsubmit="return submitHeroSearch(event)">
+                    <div class="hs-field">
+                        <i class="fas fa-id-card"></i>
+                        <input id="hsReg" type="text" placeholder="Immatriculation (ex: AA-123-BB)"
+                            autocomplete="off" />
+                    </div>
+                    <div class="hs-field">
+                        <i class="fas fa-car-side"></i>
+                        <input id="hsModel" type="text" placeholder="Modèle (ex: Duster, Captur, Polo)"
+                            autocomplete="off" />
+                    </div>
+                    <div class="hs-field">
+                        <i class="fas fa-location-dot"></i>
+                        <input id="hsLoc" type="text" placeholder="Localisation (ex: Abidjan)" autocomplete="off" />
+                    </div>
+                    <button class="hs-submit" type="submit">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <span>Rechercher</span>
+                    </button>
+                </form>
+
+                <div class="brand-trust">
+                    <div class="trust-title">Marques desservies:</div>
+                    <div class="brand-logos">
+                        <span class="brand">🏎️ Renault</span>
+                        <span class="brand">🦁 Peugeot</span>
+                        <span class="brand">🌟 Citroën</span>
+                        <span class="brand">🔷 Volkswagen</span>
+                        <span class="brand">🔴 Fiat</span>
+                        <span class="brand">✨ +20 autres</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="car-showcase-3d">
+                    <div class="car-3d-wrapper">
+                        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                            alt="Luxury Car" class="car-image-3d" loading="eager">
+                        <div class="car-glow"></div>
+                    </div>
+
+                    <div class="floating-tag tag-1">
+                        <div class="tag-icon">🛢️</div>
+                        <span>Vidange & entretien</span>
+                    </div>
+
+                    <div class="floating-tag tag-2">
+                        <div class="tag-icon">🛑</div>
+                        <span>Plaquettes de frein</span>
+                    </div>
+
+                    <div class="floating-tag tag-3">
+                        <div class="tag-icon">⛓️</div>
+                        <span>Courroie de distribution</span>
+                    </div>
+
+                    <div class="floating-tag tag-4">
+                        <div class="tag-icon">🛞</div>
+                        <span>Pneus & roues</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator-3d" onclick="scrollToSection('services')">
+            <div class="scroll-line"></div>
+            <div class="scroll-arrow"></div>
+            <span>Explorer l'Excellence</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Services d'Excellence</h2>
+                <p>L'art de l'entretien automobile, allié à la performance et à l'innovation</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🔧</div>
+                    <h3>Entretien Courant</h3>
+                    <ul>
+                        <li>Vidange huile moteur</li>
+                        <li>Remplacement filtre à huile</li>
+                        <li>Liquide de refroidissement</li>
+                        <li>Liquide de freins</li>
+                        <li>Liquide de direction assistée</li>
+                        <li>Liquide lave-glace</li>
+                        <li>Filtre à air</li>
+                        <li>Filtre habitacle / pollen</li>
+                        <li>Filtre à carburant</li>
+                        <li>Bougies d'allumage</li>
+                        <li>Bougies de préchauffage (diesel)</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🚗</div>
+                    <h3>Système Freinage</h3>
+                    <ul>
+                        <li>Plaquettes de freins (avant/arrière)</li>
+                        <li>Disques de freins (avant/arrière)</li>
+                        <li>Kit de freins arrière (tambours)</li>
+                        <li>Étriers de freins</li>
+                        <li>Liquide de freins (purge et remplacement)</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">⚙️</div>
+                    <h3>Transmission & Embrayage</h3>
+                    <ul>
+                        <li>Kit embrayage complet</li>
+                        <li>Volant moteur</li>
+                        <li>Butée d'embrayage</li>
+                        <li>Cardans & soufflets</li>
+                        <li>Boîte de vitesses</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">⛓️</div>
+                    <h3>Distribution & Moteur</h3>
+                    <ul>
+                        <li>Kit distribution (courroie + galets)</li>
+                        <li>Chaîne de distribution</li>
+                        <li>Courroies accessoires</li>
+                        <li>Pompe à eau</li>
+                        <li>Injecteurs / pompe à injection</li>
+                        <li>Turbocompresseur (turbo)</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🚙</div>
+                    <h3>Suspension & Direction</h3>
+                    <ul>
+                        <li>Amortisseurs (avant/arrière)</li>
+                        <li>Ressorts de suspension</li>
+                        <li>Coupelles d'amortisseurs</li>
+                        <li>Rotules de direction</li>
+                        <li>Biellette de barre stabilisatrice</li>
+                        <li>Parallélisme / géométrie</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🛞</div>
+                    <h3>Pneumatiques & Roues</h3>
+                    <ul>
+                        <li>Pneus (été, hiver, 4 saisons)</li>
+                        <li>Montage / équilibrage</li>
+                        <li>Réparation de pneus</li>
+                        <li>Jantes (acier / alu)</li>
+                        <li>Gonflage azote</li>
+                    </ul>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🔋</div>
+                    <h3>Batterie & Électricité</h3>
+                    <ul>
+                        <li>Batterie + installation</li>
+                        <li>Alternateur</li>
+                        <li>Démarreur</li>
+                        <li>Bougies / préchauffage</li>
+                        <li>Faisceau électrique</li>
+                        <li>Phare, ampoules, optiques</li>
+                        <li>Fusibles, relais</li>
+                    </ul>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🌬️</div>
+                    <h3>Climatisation & Chauffage</h3>
+                    <ul>
+                        <li>Recharge climatisation</li>
+                        <li>Contrôle étanchéité circuit</li>
+                        <li>Filtre habitacle spécifique clim</li>
+                        <li>Radiateur chauffage</li>
+                        <li>Compresseur clim</li>
+                    </ul>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🛡️</div>
+                    <h3>Carrosserie & Vitrage</h3>
+                    <ul>
+                        <li>Réparation / remplacement pare-brise</li>
+                        <li>Autres vitrages</li>
+                        <li>Optiques de phares</li>
+                        <li>Carrosserie (peinture, débosselage)</li>
+                        <li>Rétroviseurs</li>
+                    </ul>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🧾</div>
+                    <h3>Services Réglementaires</h3>
+                    <ul>
+                        <li>Contrôle technique</li>
+                        <li>Pré-contrôle technique</li>
+                        <li>Diagnostic électronique</li>
+                        <li>Reprogrammation moteur</li>
+                    </ul>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="service-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-3d">🛠️</div>
+                    <h3>Services Complémentaires</h3>
+                    <ul>
+                        <li>Dépannage / remorquage</li>
+                        <li>Prêt de véhicule de courtoisie</li>
+                        <li>Collecte / restitution du véhicule</li>
+                        <li>Lavage intérieur/extérieur</li>
+                        <li>Rénovation optiques de phares</li>
+                    </ul>
+                </div>
+
+                <!-- Service 12 - Insurance -->
+                <div class="service-card-3d insurance-card-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-badge">Nouveau</div>
+                    <div class="card-icon-3d">🛡️</div>
+                    <h3>Assurance Auto</h3>
+                    <div class="service-features">
+                        <span class="feature-tag">🏆 Tous Risques</span>
+                        <span class="feature-tag">🛡️ Au Tiers</span>
+                        <span class="feature-tag">🚗 Assistance</span>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-shield-check"></i> Assurance tous risques</li>
+                        <li><i class="fas fa-user-shield"></i> Assurance au tiers</li>
+                        <li><i class="fas fa-road"></i> Assistance routière 24h/24</li>
+                        <li><i class="fas fa-car-crash"></i> Garantie conducteur</li>
+                        <li><i class="fas fa-medal"></i> Protection juridique</li>
+                    </ul>
+                    <button class="btn-partner" onclick="openDevisModal()">
+                        <i class="fas fa-crown"></i>
+                        Découvrir nos offres partenaires
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electric Charging Section -->
+    <section class="electric-section">
+        <div class="electric-bg-3d">
+            <div class="electric-orb orb-1"></div>
+            <div class="electric-orb orb-2"></div>
+        </div>
+
+        <div class="container">
+            <div class="electric-container">
+                <div class="electric-content">
+                    <div class="electric-badge">
+                        <span class="badge-glow"></span>
+                        <span class="badge-icon">⚡</span>
+                        <span class="badge-text">RECHARGE ÉLECTRIQUE</span>
+                    </div>
+
+                    <h2 class="electric-title">
+                        <span>Station de</span>
+                        <span class="highlight">Recharge Premium</span>
+                    </h2>
+
+                    <p class="electric-desc">
+                        Expérience de recharge ultime avec notre technologie de pointe et service exclusif
+                    </p>
+
+                    <div class="electric-features">
+                        <div class="electric-feature-card">
+                            <div class="feature-icon-bg">🚀</div>
+                            <div>
+                                <h4>Bornes Rapides 22kW</h4>
+                                <p>Recharge ultra-rapide avec technologie dernière génération</p>
+                            </div>
+                        </div>
+
+                        <div class="electric-feature-card">
+                            <div class="feature-icon-bg">🛡️</div>
+                            <div>
+                                <h4>Installation Certifiée</h4>
+                                <p>Normes de sécurité les plus strictes garanties</p>
+                            </div>
+                        </div>
+
+                        <div class="electric-feature-card">
+                            <div class="feature-icon-bg">🌐</div>
+                            <div>
+                                <h4>Réseau National</h4>
+                                <p>Couverture complète sur tout le territoire</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="electric-buttons">
+                        <button class="btn-electric primary" onclick="findNearestCharging()">
+                            <div class="btn-shine-effect"></div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Trouver une Station</span>
+                        </button>
+                        <button class="btn-electric secondary" onclick="openDevisModal()">
+                            <i class="fas fa-bolt"></i>
+                            <span>Achat de terminaux automatiques</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="electric-visual">
+                    <div class="electric-image-wrapper">
+                        <img src="https://img.freepik.com/premium-photo/electric-vehicle-is-plugged-into-charging-station_866548-440.jpg"
+                            alt="Charging Station" class="charging-image" loading="lazy">
+                        <div class="image-glow"></div>
+                        <div class="floating-badges">
+                            <span class="badge-3d">⚡ 22kW</span>
+                            <span class="badge-3d">🔋 Rapide</span>
+                            <span class="badge-3d">🌿 Vert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="journey">
+        <div class="container">
+            <div class="section-header">
+                <h2>Votre Parcours Client</h2>
+                <p>De la recherche à la satisfaction, nous vous accompagnons à chaque étape</p>
+            </div>
+
+            <div class="journey-steps">
+                <div class="journey-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Recherche & Devis</h3>
+                        <p>Recherchez votre véhicule et obtenez un devis transparent en ligne</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Réservation & Planification</h3>
+                        <p>Réservez votre service et planifiez le rendez-vous</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Service & Réparation</h3>
+                        <p>Nos experts prennent en charge votre véhicule</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Contrôle Qualité</h3>
+                        <p>Vérification complète avant restitution</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Avis & Feedback</h3>
+                        <p>Partagez votre expérience et aidez-nous à nous améliorer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="section-header">
+                        <h2>Notre Expertise Automobile</h2>
+                        <p>Plus de 10 ans d'excellence au service de votre mobilité</p>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="stat-icon-3d">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="counter" data-count="10">0</div>
+                                <span>Ans d'expérience</span>
+                            </div>
+                        </div>
+
+                        <div class="about-stat">
+                            <div class="stat-icon-3d">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="counter" data-count="2500">0</div>
+                                <span>Clients satisfaits</span>
+                            </div>
+                        </div>
+
+                        <div class="about-stat">
+                            <div class="stat-icon-3d">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="counter" data-count="500">0</div>
+                                <span>Véhicules gérés</span>
+                            </div>
+                        </div>
+
+                        <div class="about-stat">
+                            <div class="stat-icon-3d">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="counter" data-count="5">0</div>
+                                <span>Agences</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="about-text">
+                        <strong>VROOM</strong> est le leader des solutions automobiles intégrées depuis 2015.
+                        Notre équipe d'experts passionnés vous accompagne dans tous vos projets de mobilité avec des
+                        services
+                        sur mesure, une transparence absolue et un accompagnement personnalisé 24h/24.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Techniciens certifiés et expérimentés</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pieces détachées garanties d'origine</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Service client dédié 7j/7</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Prix transparents sans surprise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="image-container-3d">
+                        <img src="https://images.unsplash.com/photo-1486496572940-2bb2341fdbdf?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Notre équipe VROOM" class="about-img" loading="lazy">
+                        <div class="image-overlay-3d">
+                            <div class="experience-badge">
+                                <span>10+</span>
+                                <small>Ans d'expérience</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Flotte de Véhicules</h2>
+                <p>Découvrez notre sélection de véhicules premium disponibles à la location</p>
+            </div>
+
+            <div class="vehicles-grid">
+                <!-- Vehicle 1 -->
+                <div class="vehicle-card-3d">
+                    <div class="vehicle-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Dacia_Duster_TCe_130_Extreme_%28III%29_%E2%80%93_f_13102024.jpg"
+                            alt="Dacia Duster (90 hp)
+Category H" loading="lazy">
+                        <div class="vehicle-badge">Populaire</div>
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3>Dacia Duster (90 hp)</h3>
+                        <div class="vehicle-specs">
+                            <span><i class="fas fa-users"></i> 5 places</span>
+                            <span><i class="fas fa-suitcase"></i> 2 bagages</span>
+                            <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                        </div>
+                        <div class="vehicle-price">
+                            <strong>151,87€</strong>
+                            <span class="price-note">/Jour</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="rentVehicle('Dacia Duster (90 hp)')">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réserver maintenant
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle 2 -->
+                <div class="vehicle-card-3d">
+                    <div class="vehicle-image">
+                        <img src="https://imgcdn.oto.com.sg/large/gallery/exterior/25/322/renault-captur-front-angle-low-view-802313.jpg"
+                            alt="Renault Captur automatic (140 hp)" loading="lazy">
+                        <div class="vehicle-badge premium">Premium</div>
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3>Renault Captur automatic (140 hp)</h3>
+                        <div class="vehicle-specs">
+                            <span><i class="fas fa-users"></i> 5 places</span>
+                            <span><i class="fas fa-suitcase"></i> 3 bagages</span>
+                            <span><i class="fas fa-gas-pump"></i> Essence</span>
+                        </div>
+                        <div class="vehicle-price">
+                            <strong>131,45€</strong>
+                            <span class="price-note">/Jour</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="rentVehicle('Renault Captur automatic (140 hp)')">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réserver maintenant
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle 3 -->
+                <div class="vehicle-card-3d">
+                    <div class="vehicle-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/VW_Polo_beats_%28VI%29_%E2%80%93_f_03032019.jpg/1200px-VW_Polo_beats_%28VI%29_%E2%80%93_f_03032019.jpg"
+                            alt="Volkswagen Polo (95 hp)" loading="lazy">
+                        <div class="vehicle-badge">SUV</div>
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3>Volkswagen Polo (95 hp)</h3>
+                        <div class="vehicle-specs">
+                            <span><i class="fas fa-users"></i> 5 places</span>
+                            <span><i class="fas fa-suitcase"></i> 4 bagages</span>
+                            <span><i class="fas fa-gas-pump"></i> Hybride</span>
+                        </div>
+                        <div class="vehicle-price">
+                            <strong>112,43€</strong>
+                            <span class="price-note">/Jour</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="rentVehicle('Volkswagen Polo (95 hp)')">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réserver maintenant
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-cta">
+                <h3>Vous ne trouvez pas le véhicule idéal ?</h3>
+                <p>Contactez-nous pour une solution personnalisée</p>
+                <button class="btn-3d btn-primary-3d" onclick="openLocationModal()">
+                    <i class="fas fa-headset"></i>
+                    Contacter un conseiller
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="temoignages" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ils Nous Font Confiance</h2>
+                <p>Découvrez les témoignages de nos clients satisfaits</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Service exceptionnel ! J'ai loué une Mercedes pour mon mariage et tout était parfait.
+                            L'équipe est très professionnelle."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&q=80&auto=format"
+                            alt="Marie K." loading="lazy">
+                        <div>
+                            <strong>Marie K.</strong>
+                            <span>Client depuis 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Réparation rapide et efficace. Mon véhicule est comme neuf ! Je recommande VROOM les yeux
+                            fermés."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80&auto=format"
+                            alt="Jean-Paul D." loading="lazy">
+                        <div>
+                            <strong>Jean-Paul D.</strong>
+                            <span>Client depuis 2020</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Assistance 24h/24 très réactive. Panne sur l'autoroute, ils étaient là en 30 minutes. Merci
+                            VROOM !"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&q=80&auto=format"
+                            alt="Sophie T." loading="lazy">
+                        <div>
+                            <strong>Sophie T.</strong>
+                            <span>Client depuis 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contactez-Nous</h2>
+                    <p>Notre équipe est à votre écoute pour répondre à toutes vos questions</p>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adresse Principale</h3>
+                            <p>7 allée de l’odyssée 77600<br>Bussy Saint Georges FRANCE</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+33768790959</p>
+                            <button class="btn-call" onclick="makeCall()">
+                                <i class="fas fa-phone"></i>
+                                Appeler maintenant
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>contact@vroo-m.com</p>
+                            <button class="btn-email" onclick="sendEmail()">
+                                <i class="fas fa-envelope"></i>
+                                Envoyer un email
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horaires d'ouverture</h3>
+                            <p>Lun - Ven: 7h00 - 20h00<br>
+                                Sam: 8h00 - 18h00<br>
+                                Dim: 9h00 - 16h00</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" onclick="openSocial('facebook')">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" onclick="openSocial('whatsapp')">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link" onclick="openSocial('instagram')">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" onclick="openSocial('linkedin')">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" onclick="openSocial('twitter')">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Nom Complet *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Email *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" required>
+                            <label for="phone">Téléphone *</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="devis">Devis personnalisé</option>
+                                <option value="location">Location véhicule</option>
+                                <option value="reparation">Réparation</option>
+                                <option value="assurance">Assurance</option>
+                                <option value="assistance">Assistance</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required rows="5"></textarea>
+                            <label for="message">Message *</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Envoyer le message</span>
+                            <div class="btn-loader">
+                                <div class="loader"></div>
+                            </div>
+                            <div class="btn-success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="vroom logo.jpg" alt="VROOM Logo" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-main">VROOM</span>
+                            <span class="logo-sub">Excellence Automobile</span>
+                        </div>
+                    </div>
+                    <p>Votre partenaire de confiance pour toutes vos solutions automobiles depuis 2015.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" onclick="openSocial('facebook')">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" onclick="openSocial('whatsapp')">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link" onclick="openSocial('instagram')">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" onclick="openSocial('linkedin')">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Services</h4>
+                    <ul>
+                        <li><a href="#services">Devis personnalisé</a></li>
+                        <li><a href="#location">Location véhicules</a></li>
+                        <li><a href="#services">Réparation expert</a></li>
+                        <li><a href="#services">Assurance véhicule</a></li>
+                        <li><a href="#services">Assistance 24h/24</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" onclick="openDevisModal()">Demande de devis</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i>  7 allée de l’odyssée 77600 Bussy Saint Georges FRANCE.</p>
+                        <p><i class="fas fa-phone"></i> +33768790959</p>
+                        <p><i class="fas fa-envelope"></i> contact@vroo-m.com</p>
+                        <p><i class="fas fa-clock"></i> Lun-Dim: 7h00-20h00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 VROOM. Tous droits réservés.</p>
+                    <div class="footer-links">
+                        <a href="#">Politique de confidentialité</a>
+                        <a href="#">Conditions d'utilisation</a>
+                        <a href="#">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Contactez-nous sur WhatsApp</div>
+    </div>
+
+    <!-- Devis Modal -->
+    <div id="devisModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeDevisModal()">&times;</span>
+            <h2>Demande de Devis Personnalisé</h2>
+            <p>Remplissez ce formulaire pour obtenir un devis détaillé et transparent</p>
+
+            <form id="devisForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="devisName" required>
+                        <label for="devisName">Nom Complet *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="devisEmail" required>
+                        <label for="devisEmail">Email *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="devisPhone" required>
+                        <label for="devisPhone">Téléphone *</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="devisService" required>
+                            <option value="">Type de service *</option>
+                            <option value="reparation">Réparation mécanique</option>
+                            <option value="entretien">Entretien régulier</option>
+                            <option value="carrosserie">Carrosserie/Peinture</option>
+                            <option value="vidange">Vidange</option>
+                            <option value="freinage">Système de freinage</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="devisVehicle">Informations du véhicule</label>
+                        <input type="text" id="devisVehicle" placeholder="Marque, modèle, année...">
+                    </div>
+                    <div class="form-group full-width">
+                        <textarea id="devisMessage"
+                            placeholder="Décrivez en détail votre problème ou besoin..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <span class="btn-text">Soumettre la demande</span>
+                    <div class="btn-loader">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="btn-success">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLocationModal()">&times;</span>
+            <h2>Réservation de Véhicule</h2>
+            <p>Choisissez votre véhicule et précisez vos dates de location</p>
+
+            <form id="locationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <select id="locationVehicle" required>
+                            <option value="">Sélectionnez un véhicule *</option>
+                            <option value="mercedes">Mercedes-Benz Classe A - 85,000 FCFA/jour</option>
+                            <option value="bmw">BMW Série 3 - 95,000 FCFA/jour</option>
+                            <option value="toyota">Toyota RAV4 - 65,000 FCFA/jour</option>
+                            <option value="range">Range Rover Velar - 120,000 FCFA/jour</option>
+                            <option value="peugeot">Peugeot 3008 - 55,000 FCFA/jour</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="locationName" required>
+                        <label for="locationName">Nom Complet *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="locationEmail" required>
+                        <label for="locationEmail">Email *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="locationPhone" required>
+                        <label for="locationPhone">Téléphone *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="locationStart" required>
+                        <label for="locationStart">Date de début *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="locationEnd" required>
+                        <label for="locationEnd">Date de fin *</label>
+                    </div>
+                    <div class="form-group full-width">
+                        <textarea id="locationMessage" placeholder="Informations complémentaires..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <span class="btn-text">Réserver maintenant</span>
+                    <div class="btn-loader">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="btn-success">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <img src="vroom logo.jpg" alt="VROOM Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="logo-main">VROOM</span>
+                        <span class="logo-sub">Espace Client</span>
+                    </div>
+                </div>
+                <div class="auth-tabs">
+                    <button id="authTabLogin" class="auth-tab active"
+                        onclick="switchAuthTab('login')">Connexion</button>
+                    <button id="authTabSignup" class="auth-tab" onclick="switchAuthTab('signup')">Créer un
+                        compte</button>
+                </div>
+            </div>
+
+            <div class="auth-body">
+                <form id="loginForm" class="auth-form" autocomplete="on">
+                    <div class="form-group">
+                        <input type="email" id="loginEmail" required autocomplete="email">
+                        <label for="loginEmail">Email *</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" required autocomplete="current-password"
+                            minlength="6">
+                        <label for="loginPassword">Mot de passe *</label>
+                    </div>
+                    <div class="auth-row">
+                        <label class="remember">
+                            <input type="checkbox" id="rememberMe"> Se souvenir de moi
+                        </label>
+                        <a href="#" class="auth-link" onclick="startPasswordReset(event)">Mot de passe oublié ?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Se connecter</span>
+                        <div class="btn-loader">
+                            <div class="loader"></div>
+                        </div>
+                        <div class="btn-success"><i class="fas fa-check"></i></div>
+                    </button>
+                </form>
+
+                <form id="signupForm" class="auth-form hidden" autocomplete="on">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" id="signupName" required autocomplete="name">
+                            <label for="signupName">Nom complet *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="signupEmail" required autocomplete="email">
+                            <label for="signupEmail">Email *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="signupPhone" autocomplete="tel">
+                            <label for="signupPhone">Téléphone</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="signupPassword" required minlength="6"
+                                autocomplete="new-password">
+                            <label for="signupPassword">Mot de passe (min 6) *</label>
+                        </div>
+                    </div>
+                    <div class="terms">
+                        <label>
+                            <input type="checkbox" id="acceptTerms" required>
+                            J'accepte les <a href="#" class="auth-link">conditions d'utilisation</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Créer mon compte</span>
+                        <div class="btn-loader">
+                            <div class="loader"></div>
+                        </div>
+                        <div class="btn-success"><i class="fas fa-check"></i></div>
+                    </button>
+                </form>
+
+                <div class="auth-divider"><span>ou</span></div>
+                <div class="auth-social">
+                    <button class="btn social-btn" onclick="socialAuth('google')"><i class="fab fa-google"></i>
+                        Continuer avec Google</button>
+                    <button class="btn social-btn" onclick="socialAuth('apple')"><i class="fab fa-apple"></i> Continuer
+                        avec Apple</button>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                <span id="authHint">Nouveau chez VROOM ? <a href="#" class="auth-link"
+                        onclick="switchAuthTab('signup'); event.preventDefault();">Créer un compte</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern JavaScript Libraries for 2025 Futuristic Experience -->
+
+    <!-- GSAP for Advanced Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js for 3D Graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Leaflet.js for Interactive Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- tsParticles for Particle Background -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Vanilla Tilt for 3D Card Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- Main Application Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
